@@ -4,6 +4,10 @@ import time
 import random
 pygame.font.init()
 
+##########################################
+#       Load all images from assets      #
+##########################################
+
 # Game Window
 WIDTH, HEIGHT = 750, 750
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -25,6 +29,10 @@ YELLOW_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_yellow.png"
 
 # Background from assets
 BG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT))
+
+##########################################
+#          Game Classes                  #
+##########################################
 
 class Laser: # Laser class that shows lasers firing in up down directions
     def __init__(self, x, y, img):
@@ -145,6 +153,10 @@ def collide(obj1, obj2):
     offset_y = obj2.y - obj1.y
     return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) != None
 
+##########################################
+#          Game Initizialize             #
+##########################################
+
 def main():
     run = True
     FPS = 60
@@ -239,6 +251,10 @@ def main():
                 enemies.remove(enemy)
 
         player.move_lasers(-laser_vel, enemies)
+
+##########################################
+#          Main game menu                #
+##########################################
 
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)
